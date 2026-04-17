@@ -1,17 +1,20 @@
-# 仅在 localhost 生效：Decap 通过本机 decap-server 把变更直接写入当前 Git 工作区里的文件
-local_backend: true
-
 backend:
-  name: git-gateway
-  branch: master
+  name: github
+  branch: main # Branch to update (optional; defaults to master)
+  repo: yuweiga/blog/
 
-media_folder: "static/images"
-public_folder: "/images"
+media_folder: public/img
+public_folder: /img
+
 collections:
- - name: blog
-   label: Blog
-   folder: "docs/sop"
-   create: true
-   fields:
-     - { name: title, label: Title, widget: string }
-     - { name: body, label: Body, widget: markdown }
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'docs'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

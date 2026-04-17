@@ -1,7 +1,8 @@
 backend:
   name: github
   branch: main # Branch to update (optional; defaults to master)
-  repo: yuweiga/blog/
+  repo: yuweiga/blog
+  local_backend: true
 
 media_folder: public/img
 public_folder: /img
@@ -9,11 +10,11 @@ public_folder: /img
 collections:
   - name: 'blog'
     label: 'Blog'
-    folder: 'docs'
+    folder: 'sop'
     create: true
     slug: '{{slug}}'
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }

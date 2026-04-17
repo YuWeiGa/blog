@@ -1,0 +1,17 @@
+# 仅在 localhost 生效：Decap 通过本机 decap-server 把变更直接写入当前 Git 工作区里的文件
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "static/images"
+public_folder: "/images"
+collections:
+ - name: blog
+   label: Blog
+   folder: "docs/sop"
+   create: true
+   fields:
+     - { name: title, label: Title, widget: string }
+     - { name: body, label: Body, widget: markdown }
